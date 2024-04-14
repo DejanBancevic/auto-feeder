@@ -18,6 +18,7 @@ export default function Navbar() {
       <h1>Auto Feeder</h1>
 
       <Link href='/' >Home</Link>
+      <Link href='/insert'>Insert</Link>
       <Link href='/about'>About</Link>
     </nav>
   )

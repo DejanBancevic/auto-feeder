@@ -4,12 +4,16 @@
 
 /* base styles */
 body {
-  background: #ebf0fa;
+  background: #f3cb81;
   @apply text-gray-500 m-8; /* @apply stavljas zvog tailwinda, jer on snabdeva te klase */
 }
-h1, h2 {
+h1 {
   @apply font-bold text-primary text-lg;
 }
+h2{
+  @apply font-bold text-lg text-green-500;
+}
+
 main {
   @apply max-w-5xl my-12 mx-auto px-8;
 }
@@ -107,6 +111,7 @@ form button {
     relative 
     overflow-hidden;
 }
+
 .card h3 {
   @apply 
     font-bold text-gray-700 text-sm 

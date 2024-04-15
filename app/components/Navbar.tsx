@@ -20,6 +20,7 @@ export default function Navbar() {
       <Link href='/' >Home</Link>
       <Link href='/insert'>Insert</Link>
       <Link href='/about'>About</Link>
+      <Link href='/test'>test</Link>
     </nav>
   )
 }

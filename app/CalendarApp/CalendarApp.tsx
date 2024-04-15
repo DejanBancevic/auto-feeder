@@ -9,17 +9,19 @@ import React from 'react'
 const CalendarApp = () => {
     const [value, setValue] = useState(new Date());
 
-    function onChange(nextValue) {
-        setValue(nextValue);
+    const onClick = ({value, event}) => {
+        return (
+          <div className="bg-green-500">
+            
+          </div>
+        );
     }
+
     return (
-        <div>
-            <Calendar
-                onChange={onChange}
-                value={value}
-            />
-        </div>
-    )
+      <div>
+        <Calendar  />
+      </div>
+    );
 }
 
 export default CalendarApp

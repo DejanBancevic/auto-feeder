@@ -6,8 +6,8 @@ export default function Insert() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-18">
       <div className='flex flex-row-2'>
-        <div className='grid-flow-col'>
 
+        <div className='grid-flow-col'>
           {/* Name */}
           <div className='grid justify-center items-center mr-20 mt-4'>
             <h1 className="text-center">Write the name of the meal</h1>
@@ -17,7 +17,7 @@ export default function Insert() {
           {/* Ingredients */}
           <div className='grid mr-20 mt-4  '>
             <h1 className='text-center'>Write you ingredients here</h1>
-            <textarea className='card-textarea w-80 h-96 justify-start' />
+            <textarea className='card-textarea w-80 h-96 justify-start'/>
           </div>
         </div>
 
@@ -25,7 +25,7 @@ export default function Insert() {
           {/* Calendar */}
           <div className='grid justify-items-center mt-4 '>
             <h1 className='text-center pb-4'>Calendar</h1>
-            <CalendarApp/>
+              <CalendarApp />
           </div>
 
           {/* Recipe */}

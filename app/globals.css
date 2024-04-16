@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+textarea:focus {
+      outline: none;
+      border: 2px solid rgb(34 197 94);
+}
+
 /* base styles */
 body {
   background: #f3cb81;

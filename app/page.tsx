@@ -6,26 +6,27 @@ import MealTransfer from './MealTransfer/MealTransfer';
 
 const Home = () => {
 
-  const { meals, getMeal, createMeal } = MealTransfer();
-
-  useEffect(() => {
-    getMeal();
-  }, []);
+  const { MealIngredients, MealRecipe, MealName } = MealTransfer();
+  const mealIngredients = MealIngredients();
+  const mealRecipe = MealRecipe();
+  const mealName = MealName();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-18">
-      <button onClick={createMeal}>Add meal</button>
       <div>
         <h1 className="flex justify-center text-4xl mb-4">MEAL OF THE DAY</h1>
-        <h2 className="flex justify-center text-4xl mb-4">{ }</h2>
+        <h2 className="flex justify-center text-4xl mb-4">{mealName}</h2>
         <div className="flex justify-center space-x-4">
-          <div className="card w-80 h-96 flex justify-center items-center">
-            {meals}
+          <div className="card w-80 h-96 flex justify-left items-left">
+            <div className="p-6">
+              {mealIngredients}
+            </div>
           </div>
 
-
-          <div className="card w-80 h-96 flex justify-center items-center">
-            <h2 className="">MEAL DISPLAY</h2>
+          <div className="card w-80 h-96 flex justify-left items-left">
+            <div className="p-6">
+              {mealRecipe}
+            </div>
           </div>
         </div>
 

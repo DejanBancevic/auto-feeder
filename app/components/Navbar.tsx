@@ -12,7 +12,6 @@ export default function Navbar() {
         alt='Auto Feeder Logo'
         width={30}
         quality={100}
-        placeholder='blur'
       />
 
       <h1>Auto Feeder</h1>

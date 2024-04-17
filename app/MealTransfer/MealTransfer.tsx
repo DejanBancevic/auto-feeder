@@ -1,12 +1,12 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const MealTransfer = () => {
     const [meals, setMeals] = useState([]);
 
     const getMeal = () => {
         fetch('http://localhost:3001')
-            .then(response => response.text())
+            .then(response => response.json())
             .then(data => setMeals(data));
     };
 
@@ -28,8 +28,53 @@ const MealTransfer = () => {
             });
     };
 
-    return { meals, getMeal, createMeal };
+    const filteredMeals = meals.filter(meal => { return (meal.date).substring(0, 10) == '2022-07-06' });
+
+    useEffect(() => {
+        getMeal();
+    }, []);
+
+    const MealName = () => {
+
+        return (
+            <div className='list-disc'>
+                {filteredMeals.map((meal) => (
+                    <div key={meal.id}>{meal.name}</div>
+                ))
+                }
+            </div >
+        )
+    }
+
+    const MealIngredients = () => {
+
+        return (
+            <ul className='list-disc'>
+                {meals.map((meal) => (
+                    <li key={meal.id}>{meal.ingredients}</li>
+                ))
+                }
+            </ul >
+        )
+    }
+
+    const MealRecipe = () => {
+
+        return (
+            <ul className='list-disc'>
+                {meals.map((meal) => (
+                    <li key={meal.id}>{meal.recipe}</li>
+                ))
+                }
+            </ul >
+        )
+    }
+
+    return { meals, getMeal, createMeal, MealIngredients, MealRecipe, MealName };
+
 };
 
 
 export default MealTransfer
+
+

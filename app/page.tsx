@@ -2,64 +2,25 @@
 
 import Link from "next/link";
 import React, { useState, useEffect } from 'react'
+import MealTransfer from './MealTransfer/MealTransfer';
 
 const Home = () => {
 
+  const { meals, getMeal, createMeal } = MealTransfer();
 
-  const [meals, setMeals] = useState("");
-
-  function getMeal() {
-    fetch('http://localhost:3001')
-      .then(response => {
-        return response.text();
-      })
-      .then(data => {
-        setMeals(data);
-      });
-  }
-
-  function createMeal() {
-    let name = prompt('Enter meal name');
-    let ingredients = prompt('Enter meal ingredients');
-    let recipe = prompt('Enter meal recipe');
-    fetch('http://localhost:3001/meals', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, ingredients, recipe }),
-    })
-      .then(response => {
-        return response.text();
-      })
-      .then(data => {
-        alert(data);
-        getMeal();
-      });
-  }
-
-
- useEffect(() => {
+  useEffect(() => {
     getMeal();
   }, []);
 
-
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-18">
+      <button onClick={createMeal}>Add meal</button>
       <div>
-        {meals ? meals : 'There is no meal data available'}
-        <br />
-        <button onClick={createMeal}>Add meal</button>
-        <br />
-      </div>
-
-      <div>
-
         <h1 className="flex justify-center text-4xl mb-4">MEAL OF THE DAY</h1>
+        <h2 className="flex justify-center text-4xl mb-4">{ }</h2>
         <div className="flex justify-center space-x-4">
           <div className="card w-80 h-96 flex justify-center items-center">
-            <h2 className="">MEAL DISPLAY</h2>
+            {meals}
           </div>
 
 
@@ -78,9 +39,6 @@ const Home = () => {
             </Link>
           </div>
         </div>
-
-
-
       </div>
     </main>
   )

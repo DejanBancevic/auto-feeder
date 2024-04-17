@@ -30,10 +30,10 @@ const getMeals = async () => {
 //create a new Meal record in the databsse
 const createMeal = (body) => {
     return new Promise(function (resolve, reject) {
-        const { name, ingredients, recipe } = body;
+        const { name, ingredients, recipe, date } = body;
         pool.query(
-            "INSERT INTO Meals (name, ingredients, recipe) VALUES ($1, $2, $3) RETURNING *",
-            [name, ingredients, recipe],
+            "INSERT INTO Meals (name, ingredients, recipe, date) VALUES ($1, $2, $3, $4) RETURNING *",
+            [name, ingredients, recipe, date],
             (error, results) => {
                 if (error) {
                     reject(error);
@@ -67,10 +67,10 @@ const deleteMeal = (id) => {
 //update a Meal record
 const updateMeal = (id, body) => {
     return new Promise(function (resolve, reject) {
-        const { name, ingredients, recipe } = body;
+        const { name, ingredients, recipe, date } = body;
         pool.query(
-            "UPDATE Meals SET name = $1, ingredients = $2, recipe = $3 WHERE id = $4 RETURNING *",
-            [name, ingredients, recipe],
+            "UPDATE Meals SET name = $1, ingredients = $2, recipe = $3 date = $4 WHERE id = $5 RETURNING *",
+            [name, ingredients, recipe, date],
             (error, results) => {
                 if (error) {
                     reject(error);

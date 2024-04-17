@@ -1,8 +1,59 @@
-import Link from "next/link";
+"use client"
 
-export default function Home() {
+import Link from "next/link";
+import React, { useState, useEffect } from 'react'
+
+const Home = () => {
+
+
+  const [meals, setMeals] = useState("");
+
+  function getMeal() {
+    fetch('http://localhost:3001')
+      .then(response => {
+        return response.text();
+      })
+      .then(data => {
+        setMeals(data);
+      });
+  }
+
+  function createMeal() {
+    let name = prompt('Enter meal name');
+    let ingredients = prompt('Enter meal ingredients');
+    let recipe = prompt('Enter meal recipe');
+    fetch('http://localhost:3001/meals', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, ingredients, recipe }),
+    })
+      .then(response => {
+        return response.text();
+      })
+      .then(data => {
+        alert(data);
+        getMeal();
+      });
+  }
+
+
+ useEffect(() => {
+    getMeal();
+  }, []);
+
+
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-18">
+      <div>
+        {meals ? meals : 'There is no meal data available'}
+        <br />
+        <button onClick={createMeal}>Add meal</button>
+        <br />
+      </div>
+
       <div>
 
         <h1 className="flex justify-center text-4xl mb-4">MEAL OF THE DAY</h1>
@@ -16,7 +67,7 @@ export default function Home() {
             <h2 className="">MEAL DISPLAY</h2>
           </div>
         </div>
-        
+
 
         <div className="card">
           <h3>Adding a New Recipe</h3>
@@ -28,8 +79,11 @@ export default function Home() {
           </div>
         </div>
 
+
+
       </div>
     </main>
-  );
+  )
 }
 
+export default Home

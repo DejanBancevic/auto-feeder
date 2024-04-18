@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from "next/link";
 
-export default function About() {
+const About = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-18">
       <div>
@@ -28,3 +28,4 @@ export default function About() {
   )
 }
 
+export default About

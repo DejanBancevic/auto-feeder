@@ -1,4 +1,5 @@
-
+import dayjs from "dayjs";
+import { only } from "node:test";
 import { useState, useEffect } from 'react';
 
 const MealTransfer = () => {
@@ -10,16 +11,13 @@ const MealTransfer = () => {
             .then(data => setMeals(data));
     };
 
-    const createMeal = () => {
-        let name = prompt('Enter meal name');
-        let ingredients = prompt('Enter meal ingredients');
-        let recipe = prompt('Enter meal recipe');
+    const CreateMeal = (name, ingredients, recipe, date) => {
         fetch('http://localhost:3001/meals', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name, ingredients, recipe }),
+            body: JSON.stringify({ name, ingredients, recipe, date }),
         })
             .then(response => response.text())
             .then(data => {
@@ -28,7 +26,23 @@ const MealTransfer = () => {
             });
     };
 
-    const filteredMeals = meals.filter(meal => { return (meal.date).substring(0, 10) == '2022-07-06' });
+    ////////////////////// Time Compare
+
+    const datePrep = (date) => {
+
+        const lastCharacter = date.substring(0, 10).slice(-1);
+        const lastCharacterPlus = String(parseInt(lastCharacter) + 1);
+        const finalDate = date.substring(0, 9) + lastCharacterPlus;
+
+        return finalDate
+    }
+
+    const currentDate = String(new Date());
+    const formatedCurrentDate = dayjs(currentDate).format("YYYY MM DD").replaceAll(" ", "-");
+    const filteredMeals = meals.filter(meal => { return datePrep(meal.date) == formatedCurrentDate });
+
+
+    ////////////////////// 
 
     useEffect(() => {
         getMeal();
@@ -49,28 +63,30 @@ const MealTransfer = () => {
     const MealIngredients = () => {
 
         return (
-            <ul className='list-disc'>
-                {meals.map((meal) => (
-                    <li key={meal.id}>{meal.ingredients}</li>
+            <div >
+                {filteredMeals.map((meal) => (
+                    <p key={meal.id}>{meal.ingredients}
+                    </p>
                 ))
                 }
-            </ul >
+            </div >
         )
     }
 
     const MealRecipe = () => {
 
         return (
-            <ul className='list-disc'>
-                {meals.map((meal) => (
-                    <li key={meal.id}>{meal.recipe}</li>
+            <div >
+                {filteredMeals.map((meal) => (
+                    <p key={meal.id}>{meal.recipe}
+                    </p>
                 ))
                 }
-            </ul >
+            </div >
         )
     }
 
-    return { meals, getMeal, createMeal, MealIngredients, MealRecipe, MealName };
+    return { meals, getMeal, CreateMeal, MealIngredients, MealRecipe, MealName };
 
 };
 

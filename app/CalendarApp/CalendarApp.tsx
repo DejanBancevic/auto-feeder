@@ -1,27 +1,32 @@
 "use client";
 
-import { useState } from 'react';
+import React,{ useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
-import React from 'react'
 
-const CalendarApp = () => {
-    const [value, setValue] = useState(new Date());
+const CalendarApp = ( props ) => {
 
-    const onClick = ({value, event}) => {
-        return (
-          <div className="bg-green-500">
-            da
-          </div>
-        );
-    }
+  const [date, setDate] = useState("");
 
-    return (
-      <div>
-        <Calendar  />
-      </div>
-    );
+  const onClickDay = value => {
+
+    const reverseDate = String(value).substring(4, 15).split(' ').reverse().join(' ');
+    const year = reverseDate.substring(0, 4)
+    const day = reverseDate.substring(5, 7)
+    const month = reverseDate.substring(8, 11).replaceAll("Apr", "04");
+    const formatedDate = year + "-" + month + "-" + day;
+    setDate(formatedDate)
+    //prompt(formatedDate)
+  }
+  props.mealDate(date)
+  
+
+  return (< Calendar
+    onClickDay={onClickDay} />
+  )
 }
+
+
 
 export default CalendarApp

@@ -12,6 +12,10 @@ app.use(function (req, res, next) {
     next();
 });
 
+
+// Ovo dalje ti nista ne treba za front, ovo je samo gledanje za back
+
+
 app.get('/', (req, res) => {
     meal_model.getMeals()
         .then(response => {
@@ -53,6 +57,7 @@ app.put("/meals/:id", (req, res) => {
             res.status(500).send(error);
         });
 });
+///////////////////////////////////////////////////////
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

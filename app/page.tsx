@@ -18,13 +18,15 @@ const Home = () => {
         <h2 className="flex justify-center text-4xl mb-4">{mealName}</h2>
         <div className="flex justify-center space-x-4">
           <div className="card w-80 h-96 flex justify-left items-left">
-            <div className="p-6">
+            <div className="p-2">
+              <h3>Ingredients</h3>
               {mealIngredients}
             </div>
           </div>
 
           <div className="card w-80 h-96 flex justify-left items-left">
-            <div className="p-6">
+            <div className="p-2">
+              <h3>Recipe</h3>
               {mealRecipe}
             </div>
           </div>

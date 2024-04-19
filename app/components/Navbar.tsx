@@ -3,7 +3,7 @@ import Link from "next/link";
 import Logo from './logo.webp';
 import Image from "next/image";
 
-export default function Navbar() {
+const Navbar = () => {
   return (
     <nav>
 
@@ -23,3 +23,5 @@ export default function Navbar() {
     </nav>
   )
 }
+
+export default Navbar

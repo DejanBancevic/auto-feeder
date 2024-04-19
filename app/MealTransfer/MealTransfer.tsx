@@ -42,7 +42,16 @@ const MealTransfer = () => {
     const filteredMeals = meals.filter(meal => { return datePrep(meal.date) == formatedCurrentDate });
 
 
-    ////////////////////// 
+    //////////////////////
+
+    const displayListElements = (list) => {
+        const listElement = list.split(",");
+        return (<ul className="list-disc">
+            {listElement.map((element, index) => (
+                <li key={index}>{element.trim()}</li>
+            ))}
+        </ul>);
+    }
 
     useEffect(() => {
         getMeal();
@@ -61,12 +70,12 @@ const MealTransfer = () => {
     }
 
     const MealIngredients = () => {
-
         return (
             <div >
                 {filteredMeals.map((meal) => (
-                    <p key={meal.id}>{meal.ingredients}
-                    </p>
+                    <div>
+                        {displayListElements(meal.ingredients) }
+                    </div>
                 ))
                 }
             </div >
@@ -78,8 +87,9 @@ const MealTransfer = () => {
         return (
             <div >
                 {filteredMeals.map((meal) => (
-                    <p key={meal.id}>{meal.recipe}
-                    </p>
+                    <div>
+                        {displayListElements(meal.recipe)}
+                    </div>
                 ))
                 }
             </div >

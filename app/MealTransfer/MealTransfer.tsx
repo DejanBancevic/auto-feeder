@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import { only } from "node:test";
 import { useState, useEffect } from 'react';
 
 const MealTransfer = () => {
@@ -26,23 +25,35 @@ const MealTransfer = () => {
             });
     };
 
-    ////////////////////// Time Compare
+    ////////////////////// Time Comparison
 
-    const datePrep = (date) => {
+    const datePrep = (date,num) => {
 
         const lastCharacter = date.substring(0, 10).slice(-1);
-        const lastCharacterPlus = String(parseInt(lastCharacter) + 1);
+        const lastCharacterPlus = String(parseInt(lastCharacter) + num);
         const finalDate = date.substring(0, 9) + lastCharacterPlus;
 
         return finalDate
     }
 
-    const currentDate = String(new Date());
-    const formatedCurrentDate = dayjs(currentDate).format("YYYY MM DD").replaceAll(" ", "-");
-    const filteredMeals = meals.filter(meal => { return datePrep(meal.date) == formatedCurrentDate });
+    const dateComp = (dateFilter) => {
 
+        const currentDate = String(new Date());
+        const formatedCurrentDate = dayjs(currentDate).format("YYYY MM DD").replaceAll(" ", "-");
 
-    //////////////////////
+        if (dateFilter == "today") {
+            const filteredMeals = meals.filter(meal => { return datePrep(meal.date,1) === formatedCurrentDate });
+            return filteredMeals
+        } else if (dateFilter == "1") {
+            const filteredMeals = meals.filter(meal => { return datePrep(meal.date,1) === datePrep(formatedCurrentDate,1)});
+            return filteredMeals
+        } else if (dateFilter === "2") {
+            const filteredMeals = meals.filter(meal => { return datePrep(meal.date, 1) == datePrep(formatedCurrentDate,2)});
+            return filteredMeals
+        }
+    }
+
+    ////////////////////// Format and Return Requested Info
 
     const displayListElements = (list) => {
         const listElement = list.split(",");
@@ -57,11 +68,11 @@ const MealTransfer = () => {
         getMeal();
     }, []);
 
-    const MealName = () => {
+    const MealName = (dateFilter) => {
 
         return (
             <div className='list-disc'>
-                {filteredMeals.map((meal) => (
+                {dateComp(dateFilter).map((meal) => (
                     <div key={meal.id}>{meal.name}</div>
                 ))
                 }
@@ -69,10 +80,10 @@ const MealTransfer = () => {
         )
     }
 
-    const MealIngredients = () => {
+    const MealIngredients = (dateFilter) => {
         return (
             <div >
-                {filteredMeals.map((meal) => (
+                {dateComp(dateFilter).map((meal) => (
                     <div>
                         {displayListElements(meal.ingredients) }
                     </div>
@@ -82,11 +93,11 @@ const MealTransfer = () => {
         )
     }
 
-    const MealRecipe = () => {
+    const MealRecipe = (dateFilter) => {
 
         return (
             <div >
-                {filteredMeals.map((meal) => (
+                {dateComp(dateFilter).map((meal) => (
                     <div>
                         {displayListElements(meal.recipe)}
                     </div>
@@ -96,7 +107,7 @@ const MealTransfer = () => {
         )
     }
 
-    return { meals, getMeal, CreateMeal, MealIngredients, MealRecipe, MealName };
+    return { getMeal, CreateMeal, MealIngredients, MealRecipe, MealName };
 
 };
 

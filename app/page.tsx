@@ -1,17 +1,16 @@
 "use client"
 
 import Link from "next/link";
-import React, { useState, useEffect } from 'react'
 import MealTransfer from './MealTransfer/MealTransfer';
 
 const Home = () => {
 
   const { MealIngredients, MealRecipe, MealName } = MealTransfer();
-  const mealIngredients = MealIngredients();
-  const mealRecipe = MealRecipe();
-  const mealName = MealName();
+  const mealIngredients = MealIngredients("today");
+  const mealRecipe = MealRecipe("today");
+  const mealName = MealName("today");
  
-  
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-18">
       <div>

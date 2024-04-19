@@ -17,6 +17,7 @@ const Navbar = () => {
       <h1>Auto Feeder</h1>
 
       <Link href='/' >Home</Link>
+      <Link href='/Upcoming'>Upcoming Meals</Link>
       <Link href='/Insert'>Insert</Link>
       <Link href='/About'>About</Link>
       <Link href='/Test'>test</Link>

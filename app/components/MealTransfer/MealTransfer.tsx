@@ -82,29 +82,23 @@ const MealTransfer = () => {
 
     const MealIngredients = (dateFilter) => {
         return (
-            <div >
-                {dateComp(dateFilter).map((meal) => (
-                    <div>
-                        {displayListElements(meal.ingredients) }
-                    </div>
-                ))
-                }
-            </div >
-        )
+          <div>
+            {dateComp(dateFilter).map((meal) => (
+              <div key={meal.id}>{displayListElements(meal.ingredients)}</div>
+            ))}
+          </div>
+        );
     }
 
     const MealRecipe = (dateFilter) => {
 
         return (
-            <div >
-                {dateComp(dateFilter).map((meal) => (
-                    <div>
-                        {displayListElements(meal.recipe)}
-                    </div>
-                ))
-                }
-            </div >
-        )
+          <div>
+            {dateComp(dateFilter).map((meal) => (
+              <div key={meal.id}>{displayListElements(meal.recipe)}</div>
+            ))}
+          </div>
+        );
     }
 
     return { getMeal, CreateMeal, MealIngredients, MealRecipe, MealName };

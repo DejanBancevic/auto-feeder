@@ -42,13 +42,13 @@ const MealTransfer = () => {
         const formatedCurrentDate = dayjs(currentDate).format("YYYY MM DD").replaceAll(" ", "-");
 
         if (dateFilter == "today") {
-            const filteredMeals = meals.filter(meal => { return datePrep(meal.date,1) === formatedCurrentDate });
+            const filteredMeals = meals.filter(meal => { return datePrep(meal.date,0) === formatedCurrentDate });
             return filteredMeals
         } else if (dateFilter == "1") {
-            const filteredMeals = meals.filter(meal => { return datePrep(meal.date,1) === datePrep(formatedCurrentDate,1)});
+            const filteredMeals = meals.filter(meal => { return datePrep(meal.date, 0) === datePrep(formatedCurrentDate, 1);});
             return filteredMeals
         } else if (dateFilter === "2") {
-            const filteredMeals = meals.filter(meal => { return datePrep(meal.date, 1) == datePrep(formatedCurrentDate,2)});
+            const filteredMeals = meals.filter(meal => { return datePrep(meal.date, 0) == datePrep(formatedCurrentDate, 2);});
             return filteredMeals
         }
     }

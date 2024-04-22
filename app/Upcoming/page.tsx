@@ -3,8 +3,8 @@
 import React from "react";
 import MealTransfer from "../components/MealTransfer/MealTransfer";
 
-const Upcoming = () => {
-  const { MealIngredients, MealName } = MealTransfer();
+const Upcoming = async () => {
+  const { MealIngredients, MealName } = await MealTransfer();
   const mealIngredients = MealIngredients("1");
   const mealName = MealName("1");
 

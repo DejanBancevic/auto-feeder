@@ -1,7 +1,9 @@
 generator client {
   provider = "prisma-client-js"
+  //engineType = "binary"
+  
 }
- 
+
 datasource db {
   provider = "postgresql"
   // Uses connection pooling
@@ -10,7 +12,7 @@ datasource db {
   // or you'll have dangling databases from migrations
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
- 
+
 model Entry {
   id        Int      @id @default(autoincrement())
   name      String

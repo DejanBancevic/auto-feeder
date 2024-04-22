@@ -27,7 +27,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/api/local/index.js"  ],
+, "app/api/index.js"  ],
   "exclude": [
     "node_modules"
   ]

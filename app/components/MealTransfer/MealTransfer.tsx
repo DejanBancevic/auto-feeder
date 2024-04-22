@@ -1,17 +1,16 @@
 import dayjs from "dayjs";
-import { useState, useEffect } from 'react';
+//import { useState, useEffect } from 'react';
+import prisma from "../../../lib/prisma";
 
-const MealTransfer = () => {
-    const [meals, setMeals] = useState([]);
 
-    const getMeal = () => {
-        fetch('http://localhost:3001')
-            .then(response => response.json())
-            .then(data => setMeals(data));
-    };
+const MealTransfer =  async () => {
+    //const [meals, setMeals] = useState([]);
+
+    const meals = await prisma.entry.findMany();
+
 
     const CreateMeal = (name, ingredients, recipe, date) => {
-        fetch('http://localhost:3001/meals', {
+        /* fetch('http://localhost:3001/meals', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -23,6 +22,7 @@ const MealTransfer = () => {
                 alert(data);
                 getMeal();
             });
+           */
     };
 
     ////////////////////// Time Comparison
@@ -64,9 +64,6 @@ const MealTransfer = () => {
         </ul>);
     }
 
-    useEffect(() => {
-        getMeal();
-    }, []);
 
     const MealName = (dateFilter) => {
 
@@ -74,6 +71,18 @@ const MealTransfer = () => {
             <div className='list-disc'>
                 {dateComp(dateFilter).map((meal) => (
                     <div key={meal.id}>{meal.name}</div>
+                ))
+                }
+            </div >
+        )
+    }
+
+    const test = ()=> {
+
+        return (
+            <div >
+                {meals.map((meal) => (
+                    <span key={meal.id}>{meal.name}</span>
                 ))
                 }
             </div >
@@ -101,7 +110,7 @@ const MealTransfer = () => {
         );
     }
 
-    return { getMeal, CreateMeal, MealIngredients, MealRecipe, MealName };
+    return { test, CreateMeal, MealIngredients, MealRecipe, MealName };
 
 };
 

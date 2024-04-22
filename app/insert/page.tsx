@@ -10,11 +10,11 @@ const Insert = () => {
   const [recipe, setRecipe] = useState("");
   const [date, setDate] = useState("2011-1-1");
 
-  const { CreateMeal } = MealTransfer();
+  //const { CreateMeal } = MealTransfer();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    return CreateMeal(name, ingredients, recipe, date);
+   // return CreateMeal(name, ingredients, recipe, date);
   };
 
   const handleSetDate = (value) => {

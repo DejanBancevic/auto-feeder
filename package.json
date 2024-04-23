@@ -9,13 +9,14 @@
     "lint": "next lint",
     "postinstall": "prisma generate"
   },
-  
   "dependencies": {
+    "@next-auth/prisma-adapter": "^0.4.4-canary.81",
     "@prisma/client": "^5.12.1",
     "@vercel/postgres": "^0.8.0",
     "dayjs": "^1.11.10",
     "express": "^4.19.2",
     "next": "^14.2.1",
+    "next-auth": "^4.24.7",
     "node": "^18.20.2",
     "pg": "^8.11.5",
     "react": "^18.2.0",

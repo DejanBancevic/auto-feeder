@@ -5,11 +5,13 @@ import prisma from "../../../lib/prisma";
 
 const MealTransfer =  async () => {
     //const [meals, setMeals] = useState([]);
-
+    
     const meals = await prisma.entry.findMany();
 
 
     const CreateMeal = (name, ingredients, recipe, date) => {
+
+        
         /* fetch('http://localhost:3001/meals', {
             method: 'POST',
             headers: {

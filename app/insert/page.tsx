@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import CalendarApp from "../components/CalendarApp/CalendarApp";
 import MealTransfer from "../components/MealTransfer/MealTransfer";
 
-const Insert = () => {
+const Insert  = () => {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [recipe, setRecipe] = useState("");
@@ -12,9 +12,21 @@ const Insert = () => {
 
   //const { CreateMeal } = MealTransfer();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-   // return CreateMeal(name, ingredients, recipe, date);
+  const handleSubmit = async (e: React.SyntheticEvent) => {
+    // event.preventDefault();
+    // return CreateMeal(name, ingredients, recipe, date);
+    e.preventDefault();
+    try {
+      const body = { name, recipe, ingredients,  date };
+      await fetch('/api/post', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+    } catch (error) {
+      console.error(error);
+    }
+
   };
 
   const handleSetDate = (value) => {

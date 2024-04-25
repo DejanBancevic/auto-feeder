@@ -3,7 +3,7 @@ import React from 'react'
 import prisma from "../../lib/prisma";
 
 const Test: GetStaticProps = async () => {
-  const feed = await prisma.entry.findMany();
+  const feed = await prisma.post.findMany();
   return (
     <div>
       {feed.map(da2 => <div key={da2.id}>

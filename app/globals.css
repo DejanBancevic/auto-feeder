@@ -2,32 +2,105 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+textarea:focus {
+      outline: none;
+      border: 2px solid rgb(34 197 94);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+/* base styles */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #f3cb81;
+  @apply text-gray-500 m-8;
+  /* @apply stavljas zvog tailwinda, jer on snabdeva te klase */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+h1 {
+  @apply font-bold text-primary text-lg;
+}
+
+h2 {
+  @apply font-bold text-lg text-green-500;
+}
+
+main {
+  @apply max-w-5xl my-12 mx-auto px-8;
+}
+
+main>h2 {
+  @apply mb-4 pb-2 text-base;
+}
+
+p>a {
+  @apply text-primary underline;
+}
+
+/* nav styles */
+nav {
+  @apply pb-4 border-b-2 border-gray-200 flex items-center gap-5 my-10 mx-auto max-w-5xl;
+}
+
+nav a,
+nav span {
+  @apply text-gray-500;
+}
+
+nav a:hover {
+  @apply text-black;
+}
+
+main nav {
+  @apply border-0;
+}
+
+/* button styles */
+button {
+  @apply px-3 py-2 rounded-sm flex justify-center items-center gap-2 text-sm;
+}
+
+button:hover {
+  @apply bg-opacity-90;
+}
+
+.btn-primary {
+  @apply bg-primary text-white;
+}
+
+.btn-secondary {
+  @apply bg-gray-200 text-gray-900;
+}
+
+/* textarea styles */
+
+textarea {
+  @apply resize-none;
+}
+
+/* feedback styles */
+.error {
+  @apply border-2 border-red-500 bg-red-300 text-red-800 py-1 px-2 rounded-sm block max-w-fit my-4 mx-auto;
+}
+
+/* card styles */
+.card {
+  @apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative overflow-auto;
+}
+
+.card-home {
+  @apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative w-80 h-96  ;
+}
+
+.card-textarea {
+  @apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative overflow-auto ;
+}
+
+.card-home h3 {
+  @apply font-bold text-gray-700 text-sm mb-0;
+}
+
+.card h3 {
+  @apply font-bold text-gray-700 text-sm mb-0;
+}
+
+.card p {
+  @apply my-4 text-sm leading-6;
 }

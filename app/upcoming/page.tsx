@@ -11,8 +11,8 @@ const Upcoming = async () => {
   const mealName2 = MealName("2");
   const mealIngredients2 = MealIngredients("2");
 
-  const mealName3 = MealName("3");
-  const mealIngredients3 = MealIngredients("3");
+  const mealName3 = MealName("2");
+  const mealIngredients3 = MealIngredients("2");
 
 
   return (

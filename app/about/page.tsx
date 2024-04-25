@@ -1,12 +1,12 @@
 import React from 'react'
 import Link from "next/link";
 
-export default function About() {
+const About = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-18">
       <div>
         <div className='flex justify-center'>
-          <h1>Dont know what you're gonna eat every day?</h1>
+          <h1>Don't know what you're gonna eat every day?</h1>
         </div>
 
         <div className='flex justify-center mb-12'>
@@ -20,7 +20,7 @@ export default function About() {
 
         <div className="card">
           <h3>Who are we...</h3>
-          <p>Kerovi - Pazzovi</p>
+          <p>Kerovi - Pacovi</p>
         </div>
 
       </div>
@@ -28,3 +28,4 @@ export default function About() {
   )
 }
 
+export default About

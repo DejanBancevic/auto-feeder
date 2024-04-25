@@ -1,11 +1,8 @@
-//"use client";
-
 import Link from "next/link";
 import MealTransfer from "./components/MealTransfer/MealTransfer";
-//import { useState, useEffect } from 'react';
 
 const Home = async () => {
-  const { test, MealIngredients, MealRecipe, MealName } = await MealTransfer();
+  const { MealIngredients, MealRecipe, MealName } = await MealTransfer();
   const mealIngredients = MealIngredients("today");
   const mealRecipe = MealRecipe("today");
   const mealName = MealName("today");

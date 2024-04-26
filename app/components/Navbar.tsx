@@ -12,20 +12,34 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <nav className="flex items-center justify-between p-4 ">
-      <div className="flex items-center space-x-2">
+    <nav>
+      <div className="flex items-left space-x-2">
         <Image src={Logo} alt="Auto Feeder Logo" width={30} quality={100} />
         <h1 className="text-xl">Auto Feeder</h1>
       </div>
-      <div className="hidden md:flex items-center space-x-4">
-        <Link href="/">Home</Link>
-        <Link href="/upcoming">Upcoming Meals</Link>
-        <Link href="/insert">Insert</Link>
-        <Link href="/about">About</Link>
-        <Link href="/test">Test</Link>
+      <div className="hidden md:flex items-end space-x-4">
+        <Link href="/" onClick={closeMenu}>
+          Home
+        </Link>
+        <Link href="/upcoming" onClick={closeMenu}>
+          Upcoming Meals
+        </Link>
+        <Link href="/insert" onClick={closeMenu}>
+          Insert
+        </Link>
+        <Link href="/about" onClick={closeMenu}>
+          About
+        </Link>
+        <Link href="/test" onClick={closeMenu}>
+          Test
+        </Link>
       </div>
-      <div className="md:hidden relative">
+      <div className="md:hidden relative ">
         <button onClick={toggleMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -43,12 +57,22 @@ const Navbar = () => {
           </svg>
         </button>
         {isOpen && (
-          <div className="grid absolute top-full bg-white mt-1 shadow-lg rounded-md p-2">
-            <Link href="/">Home</Link>
-            <Link href="/upcoming">Upcoming Meals</Link>
-            <Link href="/insert">Insert</Link>
-            <Link href="/about">About</Link>
-            <Link href="/test">Test</Link>
+          <div className=" z-50 grid absolute top-full bg-white mt-1 shadow-lg rounded-md p-2">
+            <Link href="/" onClick={closeMenu}>
+              Home
+            </Link>
+            <Link href="/upcoming" onClick={closeMenu}>
+              Upcoming Meals
+            </Link>
+            <Link href="/insert" onClick={closeMenu}>
+              Insert
+            </Link>
+            <Link href="/about" onClick={closeMenu}>
+              About
+            </Link>
+            <Link href="/test" onClick={closeMenu}>
+              Test
+            </Link>
           </div>
         )}
       </div>

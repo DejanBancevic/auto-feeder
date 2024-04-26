@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 textarea:focus {
-      outline: none;
-      border: 2px solid rgb(34 197 94);
+  outline: none;
+  border: 2px solid rgb(34 197 94);
 }
 
 /* base styles */
@@ -26,11 +26,11 @@ main {
   @apply max-w-5xl my-12 mx-auto px-8;
 }
 
-main>h2 {
+main > h2 {
   @apply mb-4 pb-2 text-base;
 }
 
-p>a {
+p > a {
   @apply text-primary underline;
 }
 
@@ -86,11 +86,11 @@ textarea {
 }
 
 .card-home {
-  @apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative w-80 h-96  ;
+  @apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative md:w-80 md:h-96;
 }
 
 .card-textarea {
-  @apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative overflow-auto ;
+  @apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative overflow-auto;
 }
 
 .card-home h3 {

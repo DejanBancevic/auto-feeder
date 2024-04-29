@@ -6,7 +6,12 @@ import prisma from '../../../lib/prisma';
 // Optional fields in body: content
 export default async function handle(req, res) {
     const { name, recipe, ingredients, date } = req.body;
-
+    if (req.method === 'DELETE') {
+        const post = await prisma.post.delete({
+            where: { date: date },
+        });
+        res.json(post);
+    } else{
     //const session = await getSession({ req });
     const result = await prisma.post.create({
         data: {
@@ -16,5 +21,6 @@ export default async function handle(req, res) {
             date: date
         },
     });
-    res.json(result);
+        res.json(result);
+    }
 }

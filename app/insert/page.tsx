@@ -14,13 +14,40 @@ const Insert = () => {
     e.preventDefault();
     try {
       const body = { name, recipe, ingredients, date };
-      await fetch('/api/post', {
+      const response = await fetch('/api/post', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
-    } catch (error) {
-      console.error(error);
+      if (response.ok) {
+        window.alert("Meal successfully inserted");
+      }
+      else if(!response.ok) {
+        window.alert('You already have a meal set to this date, please either delete the meal on this date or select a new date.');
+      }
+    }
+    catch (e) {
+      window.alert(e)
+    }
+  };
+
+  const handleDelete = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    try {
+      const body = { name, recipe, ingredients, date };
+      const response = await fetch('/api/post', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      if (!response.ok) {
+        window.alert("There's no meal on this date");
+      }
+      else if (response.ok) {
+        window.alert("Meal successfully deleted!");
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
 
@@ -108,6 +135,16 @@ const Insert = () => {
               onChange={(event) => setRecipe(event.target.value)}
               className="card-textarea w-80 h-96 "
             />
+          </div>
+
+          {/* Delete Button */}
+          <div className="grid justify-center md:mt-8">
+            <h1 className="text-center pb-4">Delete your meal</h1>
+            <form onSubmit={handleDelete}>
+              <button type="submit" className="btn-primary w-full">
+                Delete
+              </button>
+            </form>
           </div>
         </div>
       </div>

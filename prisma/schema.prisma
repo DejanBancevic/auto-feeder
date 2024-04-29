@@ -13,9 +13,9 @@ datasource db {
 }
 
 model Post {
-  id     Int    @id @default(autoincrement())
-  name      String
-  recipe     String   
-  ingredients     String
-  date String
+  id          Int    @id @default(autoincrement())
+  name        String
+  recipe      String
+  ingredients String
+  date        String @unique
 }

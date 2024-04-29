@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import CalendarApp from "../components/CalendarApp/CalendarApp";
-
+import mealDelete from '../components/MealDelete/MealDelete'
+import mealInsert from '../components/MealInsert/MealInsert'
 
 const Insert = () => {
   const [name, setName] = useState("");
@@ -12,43 +13,12 @@ const Insert = () => {
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    try {
-      const body = { name, recipe, ingredients, date };
-      const response = await fetch('/api/post', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      if (response.ok) {
-        window.alert("Meal successfully inserted");
-      }
-      else if(!response.ok) {
-        window.alert('You already have a meal set to this date, please either delete the meal on this date or select a new date.');
-      }
-    }
-    catch (e) {
-      window.alert(e)
-    }
+    await mealInsert(name, recipe, ingredients, date);
   };
 
   const handleDelete = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    try {
-      const body = { name, recipe, ingredients, date };
-      const response = await fetch('/api/post', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-      });
-      if (!response.ok) {
-        window.alert("There's no meal on this date");
-      }
-      else if (response.ok) {
-        window.alert("Meal successfully deleted!");
-      }
-    } catch (e) {
-      console.log(e);
-    }
+    await mealDelete(name, recipe, ingredients, date);
   };
 
   const handleSetDate = (value) => {

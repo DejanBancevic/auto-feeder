@@ -8,8 +8,6 @@ const About = () => {
           <h1>Don't know what you're gonna eat every day?</h1>
           <h2>Well, you're in luck!</h2>
         </div>
-
-        <div className="max-w-60 mx-auto">
           {/* Added container with max-width and center alignment */}
           <div className="card">
             <h3>What we provide...</h3>
@@ -19,10 +17,10 @@ const About = () => {
             </p>
           </div>
           <div className="card">
-            <h3>Who are we...</h3>
-            <p>Kerovi - Pacovi</p>
+            <h3>Made by</h3>
+            <p>Dejan Bančević</p>
           </div>
-        </div>
+
       </div>
     </main>
   );

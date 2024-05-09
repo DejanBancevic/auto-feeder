@@ -39,7 +39,7 @@ const Navbar = () => {
           Test
         </Link>
       </div>
-      <div className="md:hidden relative ">
+      <div className="md:hidden absolute right-5">
         <button onClick={toggleMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@ const Navbar = () => {
           </svg>
         </button>
         {isOpen && (
-          <div className=" z-50 grid absolute top-full bg-white mt-1 shadow-lg rounded-md p-2">
+          <div className=" z-50 grid absolute top-full bg-white mt-1 shadow-lg rounded-md p-2 right-4">
             <Link href="/" onClick={closeMenu}>
               Home
             </Link>

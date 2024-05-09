@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from 'next/navigation'
 import React, { useState } from "react";
 import CalendarApp from "../components/CalendarApp/CalendarApp";
 import mealDelete from '../components/MealDelete/MealDelete'
@@ -10,15 +10,18 @@ const Insert = () => {
   const [ingredients, setIngredients] = useState("");
   const [recipe, setRecipe] = useState("");
   const [date, setDate] = useState("2011-1-1");
+  const router = useRouter();
 
-  const handleSubmit = async (e: React.SyntheticEvent) => {
+  const handleInsert = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     await mealInsert(name, recipe, ingredients, date);
+    router.refresh();
   };
 
   const handleDelete = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     await mealDelete(name, recipe, ingredients, date);
+    router.refresh();
   };
 
   const handleSetDate = (value) => {
@@ -82,7 +85,7 @@ const Insert = () => {
           {/* Confirm Button */}
           <div className="grid justify-center md:items-center md:mr-20 md:mt-8">
             <h1 className="text-center pb-4">Confirm your meal</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleInsert}>
               <button type="submit" className="btn-primary w-full">
                 Confirm
               </button>

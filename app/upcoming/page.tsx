@@ -50,4 +50,5 @@ const Upcoming = async () => {
   );
 };
 
+export const dynamic = 'force-dynamic';
 export default Upcoming;

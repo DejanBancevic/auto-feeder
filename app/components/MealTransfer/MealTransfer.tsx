@@ -1,8 +1,11 @@
 import dayjs from "dayjs";
 import prisma from "../../../lib/prisma";
+import mealGet from "../MealGet/MealGet"
 
 const MealTransfer = async () => {
-  const meals = await prisma.post.findMany();
+  //const meals = await prisma.post.findMany();
+  
+  const meals = await mealGet();
 
   ////////////////////// Time Comparison
 

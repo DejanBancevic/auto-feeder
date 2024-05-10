@@ -36,7 +36,7 @@ p > a {
 
 /* nav styles */
 nav {
-  @apply pb-4 border-b-2 border-gray-200 flex items-center gap-5 my-10 mx-auto max-w-5xl;
+  @apply pb-4 border-b-2 border-gray-200 flex items-center gap-5 my-10 mx-auto max-w-5xl justify-between;
 }
 
 nav a,
@@ -46,6 +46,10 @@ nav span {
 
 nav a:hover {
   @apply text-black;
+}
+
+nav button:hover{
+   @apply text-black;
 }
 
 main nav {

@@ -5,19 +5,19 @@ import { NextResponse } from "next/server";
 export async function POST(request) {
     const res = await request.json()
     const { name, recipe, ingredients, date } = res;
-
+    const session = await getSession(res);
     const result = await prisma.post.create({
         data: {
             name: name,
             recipe: recipe,
             ingredients: ingredients,
-            date: date
+            date: date,
+            //author: { connect: { email: session?.user?.email } },
         },
     });
 
     return NextResponse.json({
         data: res
-
     });
 }
 

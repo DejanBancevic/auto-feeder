@@ -1,11 +1,24 @@
 import prisma from "../../../lib/prisma";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../api/auth/[...nextauth]/route";
 
+
+export async function getSession() {
+    return await getServerSession(authOptions);
+}
 
 const mealGet = async () => {
+    const session = await getSession();
 
-    const meals = await prisma.post.findMany();
-
-    return meals;
+    if (session && session.user !== null) {
+        const meals = await prisma.post.findMany({
+            where: { author: session.user },
+        });
+        return meals;
+    }else {
+        const meals = [{}];
+        return meals;
+    }
 }
 
 

@@ -17,9 +17,10 @@ model Post {
   name        String
   recipe      String
   ingredients String
-  date        String @unique
+  date        String 
   author    User?   @relation(fields: [authorId], references: [id])
   authorId  String?
+  @@unique([authorId, date])
 }
 
 model Account {

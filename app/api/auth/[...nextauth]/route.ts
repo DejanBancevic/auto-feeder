@@ -5,7 +5,7 @@ import prisma from '../../../../lib/prisma';
 import { authOptions } from "../../../../lib/authOp";
 
 
-export const handler = NextAuth(authOptions);
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
 

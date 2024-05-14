@@ -1,11 +1,9 @@
 import prisma from "../../../lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../lib/authOp";
+import { getSession } from "../../actions/getCurrentUser";
 
 
-export async function getSession() {
-    return await getServerSession(authOptions);
-}
 
 const mealGet = async () => {
     const session = await getSession();

@@ -2,11 +2,7 @@ import prisma from '../../../lib/prisma';
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../../lib/authOp";
-
-
-export async function getSession() {
-    return getServerSession(authOptions);
-}
+import { getSession } from "../../actions/getCurrentUser";
 
 export async function POST(request) {
     const body = await request.json()

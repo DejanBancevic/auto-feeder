@@ -5,7 +5,7 @@ import { authOptions } from "../../../lib/authOp";
 
 
 export async function getSession() {
-    return await getServerSession(authOptions);
+    return getServerSession(authOptions);
 }
 
 export async function POST(request) {

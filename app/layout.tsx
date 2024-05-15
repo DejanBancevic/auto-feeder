@@ -2,6 +2,8 @@
 import { Rubik } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./components/SessionProvider";
+import { getSession } from "./actions/getCurrentUser";
+
 
 // Componants
 import Navbar from "./components/Navbar";
@@ -14,11 +16,19 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
+
+  const session = await getSession();
+  
   return (
     <html lang="en">
       <body className={rubik.className}>
-        <Providers><Navbar/>{children}</Providers>
+        <Providers>
+          {session && <Navbar />}
+          {children}
+        </Providers>
       </body>
     </html>
   );
+
+
 }

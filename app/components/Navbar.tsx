@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Logo from "./logo.webp";
 import Image from "next/image";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 
 const Navbar = () => {
@@ -18,21 +18,22 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  const handleSignOut = () => {
+    const callbackUrl = `${window.location.origin}/`;
+    return signOut({ callbackUrl });
+  }
+
   const AuthButton=() =>{
     const { data: session } = useSession();
 
     if (session) {
       return (
         <div>
-          <button className="p-0 text-base" onClick={() => signOut()}> {session?.user?.name} | Sign out</button>
+          <button className="p-0 text-base" onClick={() => handleSignOut()}> {session?.user?.name} | Sign out</button>
         </div>
       );
     }
-    return (
-      <div>
-        <button className="p-0  text-base" onClick={() => signIn()}>Sign in</button>
-      </div>
-    );
+
   }
 
   return (
@@ -43,7 +44,7 @@ const Navbar = () => {
           <h1 className="text-xl">Auto Feeder</h1>
         </div>
         <div className="hidden md:flex space-x-4">
-          <Link href="/" onClick={closeMenu}>
+          <Link href="/home" onClick={closeMenu}>
             Home
           </Link>
           <Link href="/upcoming" onClick={closeMenu}>
@@ -55,9 +56,9 @@ const Navbar = () => {
           <Link href="/about" onClick={closeMenu}>
             About
           </Link>
-          <Link href="/test" onClick={closeMenu}>
+          {/* <Link href="/test" onClick={closeMenu}>
             Test
-          </Link>
+          </Link>*/}
         </div>
         <div className="md:hidden absolute right-5">
           <button onClick={toggleMenu}>
@@ -78,7 +79,7 @@ const Navbar = () => {
           </button>
           {isOpen && (
             <div className=" z-50 grid absolute top-full bg-white mt-1 shadow-lg rounded-md p-2 right-4">
-              <Link href="/" onClick={closeMenu}>
+              <Link href="/home" onClick={closeMenu}>
                 Home
               </Link>
               <Link href="/upcoming" onClick={closeMenu}>

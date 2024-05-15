@@ -36,7 +36,7 @@ p > a {
 
 /* nav styles */
 nav {
-  @apply pb-4 border-b-2 border-gray-200 flex items-center gap-5 my-10 mx-auto max-w-5xl justify-between;
+  @apply pb-4 border-b-2 border-green-700 flex items-center gap-5 my-10 mx-auto max-w-5xl justify-between;
 }
 
 nav a,
@@ -61,7 +61,15 @@ button {
   @apply px-3 py-2 rounded-sm flex justify-center items-center gap-2 text-sm;
 }
 
-button:hover {
+.btn-land {
+  @apply bg-primary text-white rounded-sm
+}
+
+.btn-land:hover {
+  @apply bg-yellow-700 
+}
+
+.btn-primary:hover {
   @apply bg-opacity-90;
 }
 

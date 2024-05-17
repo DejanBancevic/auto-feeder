@@ -2,6 +2,8 @@
 
 import React from "react";
 import MealTransfer from "../components/MealTransfer/MealTransfer";
+import EmblaCarousel from "../components/EmblaCarousel/EmblaCarousel";
+import { EmblaOptionsType } from 'embla-carousel'
 
 const Upcoming = async () => {
   const { MealIngredients, MealName } = await MealTransfer();
@@ -36,8 +38,20 @@ const Upcoming = async () => {
     );
   };
 
+  const OPTIONS: EmblaOptionsType = { containScroll: false }
+  const SLIDE_COUNT = 5
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-18">
+
+      
+        <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+  
+      
+
+
+
       <div className="grid md:grid-cols-3 grid-rows-auto gap-6 ">
         {upcomingMeal(mealName1, mealIngredients1)}
         {upcomingMeal(mealName2, mealIngredients2)}
@@ -46,6 +60,7 @@ const Upcoming = async () => {
         {upcomingMeal(mealName5, mealIngredients5)}
         {upcomingMeal(mealName6, mealIngredients6)}
       </div>
+     
     </main>
   );
 };

@@ -31,13 +31,13 @@ const Home = async () => {
                     </div>
                 </div>
 
-                <div className="card">
+                <div className="card md:px-2">
                     <h3>Adding a New Recipe</h3>
                     <p className="text-center md:text-left">
                         If you'd like to add your own recipe, just click on the button
                         below, it will lead you to an insert page!
                     </p>
-                    <div className="flex justify-center my-3 md:my-5">
+                    <div className="flex justify-center my-3 md:my-5 ">
                         <Link href="/insert">
                             <button className="btn-primary">View Insert Page</button>
                         </Link>

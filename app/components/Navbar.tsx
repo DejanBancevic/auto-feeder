@@ -1,5 +1,6 @@
 "use client"
 
+import { FaGithub, FaCalendar, FaArrowAltCircleDown, FaHeart, FaHome} from "react-icons/fa";
 import React, { useState } from "react";
 import Link from "next/link";
 import Logo from "./logo.webp";
@@ -28,8 +29,8 @@ const Navbar = () => {
 
     if (session) {
       return (
-        <div>
-          <button className="p-0 text-base" onClick={() => handleSignOut()}> {session?.user?.name} | Sign out</button>
+        <div className="flex gap-1 navSignOut">
+          <FaGithub onClick={() => handleSignOut()}  size={25} /> <button className="p-0 text-base" onClick={() => handleSignOut()}> {session?.user?.name} | Sign out</button>
         </div>
       );
     }
@@ -78,22 +79,30 @@ const Navbar = () => {
             </svg>
           </button>
           {isOpen && (
-            <div className=" z-50 grid absolute top-full bg-white mt-1 shadow-lg rounded-md p-2 right-4">
+            <div className=" z-50 grid absolute top-full bg-white mt-1 shadow-lg rounded-md p-2 right-4 space-y-1">
               <Link href="/home" onClick={closeMenu}>
-                Home
+                <div className="flex items-center gap-1">
+                  <FaHome /> Home
+                </div>
               </Link>
               <Link href="/upcoming" onClick={closeMenu}>
-                Upcoming Meals
+                <div className="flex items-center gap-1">
+                  <FaCalendar /> Upcoming
+                </div>
               </Link>
               <Link href="/insert" onClick={closeMenu}>
-                Insert
+                <div className="flex items-center gap-1">
+                  <FaArrowAltCircleDown /> Insert
+                </div>
               </Link>
               <Link href="/about" onClick={closeMenu}>
-                About
+                <div className="flex items-center gap-1">
+                  <FaHeart /> About
+                </div>
               </Link>
-              <Link href="/test" onClick={closeMenu}>
+              {/* <Link href="/test" onClick={closeMenu}>
                 Test
-              </Link>
+              </Link>*/}
               <AuthButton />
             </div>
           )}

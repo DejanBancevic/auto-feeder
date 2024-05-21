@@ -5,8 +5,9 @@ import { EmblaOptionsType } from 'embla-carousel'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 import useEmblaCarousel from 'embla-carousel-react'
 
+
 type PropType = {
-    slides: number[]
+    slides: any[]
     options?: EmblaOptionsType
 }
 
@@ -17,21 +18,20 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     const { selectedIndex, scrollSnaps, onDotButtonClick } =
         useDotButton(emblaApi)
 
-
+    
     return (
         <section className="embla">
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
-                    {slides.map((index) => (
+                    {slides.map((slide,index) => (
                         <div className="embla__slide" key={index}>
-                            <div className="embla__slide__number">{index + 1}</div>
+                            <div className="embla__slide__number">{slide}</div>
                         </div>
                     ))}
                 </div>
             </div>
 
-            <div className="embla__controls">
-                <div></div>
+            <div className="embla__controls ">
                 <div className="embla__dots">
                     {scrollSnaps.map((_, index) => (
                         <DotButton

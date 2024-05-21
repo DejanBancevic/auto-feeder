@@ -14,24 +14,24 @@ const Home = async () => {
                 <h1 className="text-3xl md:text-4xl mb-2 md:mb-4 text-center">MEAL OF THE DAY</h1>
                 <h2 className="text-3xl md:text-4xl mb-2 md:mb-4 text-center">{mealName}</h2>
                 {/* Cards */}
-                <div className="flex flex-col md:flex-row justify-center md:space-x-4">
+                <div className="flex flex-col md:flex-row justify-center md:space-x-8">
                     {/* Right Ingredients Card */}
                     <div className="card-home flex flex-wrap md:justify-start md:items-start overflow-auto">
                         <div>
-                            <h3 className="pt-2 pr-2 text-center md:text-left">Ingredients</h3>
-                            <div className="p-2 md:p-4">{mealIngredients}</div>
+                            <h3 className="pt-2 pr-2 text-center md:text-left">Ingredients:</h3>
+                            <div className="p-2 md:p-4 break-words">{mealIngredients}</div>
                         </div>
                     </div>
                     {/* Left Recipe Card */}
-                    <div className="card-home flex flex-wrap   md:justify-start md:items-start overflow-auto">
+                    <div className="card-home flex flex-wrap md:justify-start md:items-start overflow-auto">
                         <div>
-                            <h3 className="pt-2 pr-2 text-center md:text-left">Recipe</h3>
-                            <div className="p-2 md:p-4">{mealRecipe}</div>
+                            <h3 className="pt-2 pr-2 text-center md:text-left">Recipe:</h3>
+                            <div className="p-2 md:p-4 break-words">{mealRecipe}</div>
                         </div>
                     </div>
                 </div>
 
-                <div className="card md:px-2">
+                <div className="card">
                     <h3>Adding a New Recipe</h3>
                     <p className="text-center md:text-left">
                         If you'd like to add your own recipe, just click on the button

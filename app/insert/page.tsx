@@ -45,6 +45,10 @@ const Insert = () => {
             <p className="max-w-44 mx-auto md:max-w-64 md:mx-auto">
               Put a comma (",") after each ingredient and recipe instruction.
             </p>
+            <p className="max-w-44 mx-auto md:max-w-64 md:mx-auto">
+              For changing or deleting a meal, you'll have to click the date on the Calendar
+              of the wanted meal and click on the Delete Button.
+            </p>
           </div>
 
           {/* HowTo Small */}
@@ -59,6 +63,10 @@ const Insert = () => {
             </p>
             <p className="max-w-44 mx-auto md:max-w-64 md:mx-auto">
               Put a comma (",") after each ingredient and recipe instruction.
+            </p>
+            <p className="max-w-44 mx-auto md:max-w-64 md:mx-auto">
+              For changing or deleting a meal, you'll have to click the date on the Calendar
+              of the wanted meal and click on the Delete Button.
             </p>
           </div>
 

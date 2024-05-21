@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import prisma from "../../../lib/prisma";
 import mealGet from "../MealGet/MealGet"
 
 const MealTransfer = async () => {
@@ -104,6 +103,16 @@ const MealTransfer = async () => {
     );
   };
 
+  const MealDate = (dateFilter) => {
+    return (
+      <div className="list-disc">
+        {dateComp(dateFilter).map((meal) => (
+          <div key={meal.id}>{meal.date}</div>
+        ))}
+      </div>
+    );
+  };
+
   const MealRecipe = (dateFilter) => {
     return (
       <div>
@@ -114,7 +123,7 @@ const MealTransfer = async () => {
     );
   };
 
-  return { MealIngredients, MealRecipe, MealName };
+  return { MealIngredients, MealRecipe, MealName, MealDate };
 };
 
 export default MealTransfer;

@@ -1,6 +1,6 @@
 "use client"
 
-import { FaGithub, FaCalendar, FaArrowAltCircleDown, FaHeart, FaHome} from "react-icons/fa";
+import { FaGithub, FaCalendar, FaArrowAltCircleDown, FaHeart, FaHome, FaSearch } from "react-icons/fa";
 import React, { useState } from "react";
 import Link from "next/link";
 import Logo from "./logo.webp";
@@ -54,6 +54,9 @@ const Navbar = () => {
           <Link href="/insert" onClick={closeMenu}>
             Insert
           </Link>
+          <Link href="/discover" onClick={closeMenu}>
+            Discover
+          </Link>
           <Link href="/about" onClick={closeMenu}>
             About
           </Link>
@@ -93,6 +96,11 @@ const Navbar = () => {
               <Link href="/insert" onClick={closeMenu}>
                 <div className="flex items-center gap-1">
                   <FaArrowAltCircleDown /> Insert
+                </div>
+              </Link>
+              <Link href="/discover" onClick={closeMenu}>
+                <div className="flex items-center gap-1">
+                  <FaSearch /> Discover
                 </div>
               </Link>
               <Link href="/about" onClick={closeMenu}>

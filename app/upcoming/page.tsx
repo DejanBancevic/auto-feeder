@@ -32,9 +32,9 @@ const Upcoming = async () => {
     return (
       <div className="card w-full h-full border-4 border-green-400 grid-col-1 justify-left items-left overflow-auto">
         <div className="">
-          <h1 className=" flex justify-center text-4xl">{meal}</h1>
+          <h1 className=" flex justify-center md:text-4xl">{meal}</h1>
           <h2 className="flex justify-end py-2">{date}</h2>
-          <h3 className="pt-2 pr-2 ">Ingredients:</h3>
+          <h3 className="pt-2 pr-2">Ingredients:</h3>
           <div className="p-4 break-words">{ingredients}</div>
         </div>
       </div>

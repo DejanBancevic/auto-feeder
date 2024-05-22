@@ -186,7 +186,7 @@ textarea {
 }
 
 .embla__dot {
-  border-color: #1eea2c5c;
+  border-color: #3cab4c5c;
   touch-action: manipulation;
   display: inline-flex;
   text-decoration: none;
@@ -194,8 +194,8 @@ textarea {
   border-width: 2px;
   padding: 0;
   margin: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 1.6rem;
+  height: 1.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,8 +212,8 @@ textarea {
 }
 
 .embla__dot--selected:after {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 1.4rem;
+  height: 1.4rem;
   border-radius: 50%;
   border-width: 2px;
   border-color: rgba(52,211,153);

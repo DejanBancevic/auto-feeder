@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
 textarea:focus {
-      outline: none;
-      border: 2px solid rgb(34 197 94);
+  outline: none;
+  border: 2px solid rgb(34 197 94);
 }
 
 /* base styles */
@@ -26,17 +27,17 @@ main {
   @apply max-w-5xl my-12 mx-auto px-8;
 }
 
-main>h2 {
+main > h2 {
   @apply mb-4 pb-2 text-base;
 }
 
-p>a {
+p > a {
   @apply text-primary underline;
 }
 
 /* nav styles */
 nav {
-  @apply pb-4 border-b-2 border-gray-200 flex items-center gap-5 my-10 mx-auto max-w-5xl;
+  @apply pb-4 border-b-2 border-green-500 flex items-center gap-5 my-10 mx-auto max-w-5xl justify-between;
 }
 
 nav a,
@@ -45,6 +46,14 @@ nav span {
 }
 
 nav a:hover {
+  @apply text-black;
+}
+
+nav button:hover{
+   @apply text-black;
+}
+
+.navSignOut:hover {
   @apply text-black;
 }
 
@@ -57,7 +66,15 @@ button {
   @apply px-3 py-2 rounded-sm flex justify-center items-center gap-2 text-sm;
 }
 
-button:hover {
+.btn-land {
+  @apply bg-primary text-white rounded-sm
+}
+
+.btn-land:hover {
+  @apply bg-yellow-700 
+}
+
+.btn-primary:hover {
   @apply bg-opacity-90;
 }
 
@@ -86,11 +103,12 @@ textarea {
 }
 
 .card-home {
-  @apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative w-80 h-96  ;
+  @apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative md:w-80 md:h-96;
 }
 
+
 .card-textarea {
-  @apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative overflow-auto ;
+  @apply bg-white shadow-sm rounded-md py-3 px-4 my-4 relative overflow-auto;
 }
 
 .card-home h3 {
@@ -103,4 +121,100 @@ textarea {
 
 .card p {
   @apply my-4 text-sm leading-6;
+}
+
+/* Embla Carousel */
+
+
+
+.embla {
+  max-width: 38rem;
+  --slide-height: 33rem;
+  --slide-spacing: 1rem;
+  --slide-size: 70%;
+}
+
+@media (max-width: 480px) {
+  .embla {
+    max-width: 15rem;
+    --slide-height: 15rem;
+    --slide-spacing: 0.25rem;
+    --slide-size: 90%;
+  }
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}
+
+.embla__slide__number {
+  border-radius: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--slide-height);
+}
+
+.embla__controls {
+  display: flex;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+
+.embla__dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
+}
+
+.embla__dot {
+  border-color: #3cab4c5c;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border-width: 2px;
+  padding: 0;
+  margin: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.embla__dot:after {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  content: '';
+}
+
+.embla__dot--selected:after {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border-width: 2px;
+  border-color: rgba(52,211,153);
 }

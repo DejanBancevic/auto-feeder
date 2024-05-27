@@ -67,7 +67,7 @@ button {
 }
 
 .btn-land {
-  @apply bg-primary text-white rounded-sm
+  @apply bg-primary text-white rounded-md
 }
 
 .btn-land:hover {

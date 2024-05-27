@@ -1,6 +1,6 @@
 "use client"
 
-import { FaGithub, FaCalendar, FaArrowAltCircleDown, FaHeart, FaHome, FaSearch } from "react-icons/fa";
+import { FaGoogle, FaCalendar, FaArrowAltCircleDown, FaHeart, FaHome, FaSearch } from "react-icons/fa";
 import React, { useState } from "react";
 import Link from "next/link";
 import Logo from "./logo.webp";
@@ -30,7 +30,7 @@ const Navbar = () => {
     if (session) {
       return (
         <div className="flex gap-1 navSignOut">
-          <FaGithub onClick={() => handleSignOut()}  size={25} /> <button className="p-0 text-base" onClick={() => handleSignOut()}> {session?.user?.name} | Sign out</button>
+          <span onClick={() => handleSignOut()}/> <button className="p-0 text-base" onClick={() => handleSignOut()}> {session?.user?.name} | Sign out</button>
         </div>
       );
     }

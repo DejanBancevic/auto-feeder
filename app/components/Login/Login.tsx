@@ -6,10 +6,7 @@ import Image from 'next/image';
 
 const Login = () => {
 
-    const handleSignInGithub = () => {
-        const callbackUrl = `${window.location.origin}/home`;
-        return signIn('github', { callbackUrl });
-    };
+
 
     const handleSignInGoogle = () => {
         const callbackUrl = `${window.location.origin}/home`;
@@ -28,12 +25,7 @@ const Login = () => {
             </p>
 
             <div className="relative flex justify-center my-16 md:my-18 w-full h-64 md:h-96">
-                <button
-                    className="btn-land text-xl px-4 md:px-6 py-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
-                    onClick={handleSignInGithub}
-                >
-                    Sign in with Github
-                </button>
+               
                 <button
                     className="btn-land text-xl px-4 md:px-6 py-3 absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
                     onClick={handleSignInGoogle}

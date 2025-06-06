@@ -18,5 +18,5 @@ const Landing = async () => {
   );
 }
 
-//test
+//test 2
 export default Landing;
